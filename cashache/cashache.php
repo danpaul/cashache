@@ -3,6 +3,8 @@
 
 class Cashache
 {
+	const FILE_PERMISSION = '0644';
+
 	protected static $file;
 	protected static $compressed_file;
 
@@ -33,11 +35,11 @@ class Cashache
 	{
 		if( !file_exists(dirname(self::$file)))
 		{
-			mkdir(dirname(self::$file), NULL, TRUE);
+			mkdir(dirname(self::$file), self::FILE_PERMISSION, TRUE);
 		}
 		if( !file_exists(dirname(self::$compressed_file)))
 		{
-			mkdir(dirname(self::$compressed_file), NULL, TRUE);
+			mkdir(dirname(self::$FILE_PERMISSION), NULL, TRUE);
 		}
 
 		file_put_contents(self::$file, ob_get_contents());
