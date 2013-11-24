@@ -171,7 +171,7 @@ Percentage of the requests served within a certain time (ms)
  100%      9 (longest request)
  ```
 
- ### Test 2 (100 member JSON array)
+### Test 2 (100 member JSON array)
 
  Looping through 100 member JSON array 10 times and changing a variable on each iteration then looping through and echoing three variables from each array member:
 
