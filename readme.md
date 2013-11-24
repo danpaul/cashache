@@ -4,7 +4,7 @@ Cashache is a small class for cacheing and compressing pages that are generated 
 
 I created Cashache as an experiment. I had been finding myself creating pages that were essentially static but still relied on PHP for generating. In these cases, a large, static, data file (JSON, PHP array, CSV) is read in processed and some non-changing output is returned. It seemed pointless to continually reporecess this data so I wanted to determine what kind of performance benefits one could get by automatically cacheing these responses.
 
-After doing some basic testing using Apache AB, my overall conclusion is that using Cashache  provides consistently better response time and that the benefit is proportional to amount of processing occurring and the overall document size. Overall however, I would say the benefits of cacheing are probably not worthwhile unless the processing and/or document size is very large, the number of page requests is also very large and you wouldn't be better served (or could not use) a reverse proxy cache like [Varnish](https://www.varnish-cache.org/).
+After doing some basic testing using Apache AB, my overall conclusion is that using Cashache  provides consistently better response time and that the benefit is proportional to amount of processing occurring and the overall document size. Overall however, I would say the benefits of cacheing are probably not worthwhile unless the processing and/or document size is very large, the number of page requests is also very large and you wouldn't be better served (or could not use) a reverse proxy cache like [Varnish](https://www.varnish-cache.org/). However, if the docment size and/or processing is very high, Cashache can provide signficant improvements in response time. 
 
 ## Use
 
@@ -25,7 +25,7 @@ Below are the results of testing using AB. These are probably not conclusive or 
 
 ### Test 1 (a million foos)
 
-In the "oh so common" scenario when you need to print 'foo' one million times.
+In the "oh so common" scenario when you need to print 'foo' one million times. The size of the document generated is 3MB.
 
 ```PHP
 require_once('cashache/cashache.php');
